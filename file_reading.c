@@ -29,20 +29,25 @@ piece of work is entirely of our own creation.
 
 
 int importWeatherDataFile(FILE* fp, struct WeatherRecord* data, int max)
-{
-	int recs = 0;
 
-	if (fp != NULL)
-	{
-		while (recs < max &&
-			fscanf(fp, "%d,%d, %lf, %c, %d, %15[^\n]\n",
-				&data[recs].date.year, &data[recs].date.month,
-				&data[recs].precipAmt, &data[recs].unit,
-				&data[recs].location.regionCode,
-				&data[recs].location.name) == 6)
-		{
-			recs++;
-		}
-	}
-	return recs;
+{
+
+    int recs = 0;
+
+    if (fp != NULL)
+    {
+        while (recs < max &&
+               fscanf(fp, "%d,%d,%lf,%c,%d,%15[^\n]\n",
+                      &data[recs].date.year, &data[recs].date.month,
+                      &data[recs].precipAmt, &data[recs].unit,
+                      &data[recs].location.regionCode,
+                      data[recs].location.name) == 6)
+        {
+
+            recs++;
+        }
+    }
+
+    return recs;                              
+
 }

@@ -16,16 +16,16 @@ piece of work is entirely of our own creation.
 *****************************************************************************
 */
 
-
-
 #pragma once
-
 #ifndef FILE_READING_H
 #define FILE_READING_H
 
+// macrios
+#define NAME_LENGTH 20
+#define REGION_LENGTH 20
+#define MONTH_LENGTH 15
 
-//STRUCTURES DECLARATION
-
+// ================== Structures ==================
 
 struct Date
 {
@@ -33,13 +33,11 @@ struct Date
 	int month;
 };
 
-
 struct Location
 {
 	int regionCode;
-	char name[20];
+	char name[NAME_LENGTH];
 };
-
 
 struct WeatherRecord
 {
@@ -52,27 +50,24 @@ struct WeatherRecord
 struct Region
 {
 	int regionDirection;
-	char regionName[20];
+	char regionName[REGION_LENGTH];
 	double totalRegion;
 };
 
-
 struct Month
 {
-	char nameMonth[15];
+	char nameMonth[MONTH_LENGTH];
 	int totalMonth;
 };
 
 struct Area
 {
-	char regionName[20];
+	char regionName[REGION_LENGTH];
 	double totalPercip;
 };
-//FUNCTION PROTOTYPES 
+
+// ================== Function Protypes ==================
 
 int importWeatherDataFile(FILE* fp, struct WeatherRecord* data, int max);
-
-
-
 
 #endif // !FILE_READING_H1

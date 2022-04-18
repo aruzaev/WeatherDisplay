@@ -42,7 +42,6 @@ int main()
 		return 0;
 	}
 	howManyRecords = importWeatherDataFile(textFile, arr, RECORDS_MAX);
-	//getMenuOption();
 	showMenu(arr, howManyRecords);
 	fclose(textFile);
 	return 0;

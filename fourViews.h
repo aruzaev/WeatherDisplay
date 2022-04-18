@@ -16,75 +16,68 @@ piece of work is entirely of our own creation.
 *****************************************************************************
 */
 
-
-
-
 #pragma once
 #ifndef FOURVIEWS_H
 #define FOURVIEWS_H
 
-//utility functions
+// ================== Utility Functions ==================
+
 void clearInputBuffer(void);
 void suspend(void);
 int inputIntRange(int low, int high);
 
+// ================== Conversion Functions ==================
 
-//conver cm to mmm
 int conversionResult(struct WeatherRecord arr[], int howManyRecords);
+int reverseConversion(struct WeatherRecord arr[], int howManyRecords);
 
-//***VIEW#2 
-//sum by region
+// ================== VIEW #1 - All Data ==================
+
+void viewAllData(struct WeatherRecord arr[], int howManyRecords);
+
+// ================== VIEW #2 - By Region ==================
+
+void viewByRegion(struct WeatherRecord arr[], int howManyRecords);
 void summaryRegion(struct WeatherRecord arr[], int howManyRecords,
-	double* WesternTotal,
-	double* EasternTotal,
-	double* NorthenTotal,
-	double* CentralTotal);
-
-
+	double* totalWestern,
+	double* totalEastern,
+	double* totalNorthern,
+	double* totalCentral);
 
 void sortByRegion(struct Region r[], int n);
 
 
-//***VIEW#3
-// sum by month
+// ================== VIEW #3 - By Month ==================
+
+void viewByMonth(struct WeatherRecord arr[], int howManyRecords);
 void summaryMonth(struct WeatherRecord arr[], int howManyRecords,
-	int* TotalJanuary, int* TotalFebruary, int* TotalMarch,
-	int* TotalApril, int* TotalMay, int* TotalJune, int* TotalJule,
-	int* TotalAugust, int* TotalSeptember, int* TotalOctober,
-	int* TotalNovember, int* TotalDecember);
+	int* totalJanuary,
+	int* totalFebruary,
+	int* totalMarch,
+	int* totalApril,
+	int* totalMay,
+	int* totalJune,
+	int* totalJuly,
+	int* totalAugust,
+	int* totalSeptember,
+	int* totalOctober,
+	int* totalNovember,
+	int* totalDecember);
 
-
-//sort 
 void sortByMonth(struct Month m[], int b);
 
+// ================== VIEW #4 - By Location ==================
+void viewByLocation(struct WeatherRecord arr[], int howManyRecords);
+void locationSummary(struct WeatherRecord arr[], int howManyRecords, 
+	double* totalChatham,
+	double* totalHalton,
+	double* totalRenfrew,
+	double* totalKenora,
+	double* totalSimcoe,
+	double* totalEssex,
+	double* totalOttawa,
+	double* totalThunderBay);
 
-
-
-
-
-
-
-
-//***VIEW#4
-
-
-
-void locationSummary(struct WeatherRecord arr[], int howManyRecords,
-	double* chathamPercip,
-	double* haltonPercip,
-	double* renfrewPercip,
-	double* kenoraPercip,
-	double* simcoePercip,
-	double* essexPercip,
-	double* ottawaPercip,
-	double* thunderBayPercip);
-
-
-void sortByLocationName(struct Region r[], int n);
-
-
-
-
-
+void sortByLocationName(struct Area r[], int n);
 
 #endif // !FOURVIEWS_H1

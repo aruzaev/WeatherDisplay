@@ -16,24 +16,16 @@ piece of work is entirely of our own creation.
 *****************************************************************************
 */
 
-
-
 #pragma once
 
 #ifndef SHOWMENU_H
 #define SHOWMENU_H
 
 #define STEPS 15; 
-
-
-////utility functions
-//void clearInputBuffer(void);
-//void suspend(void);
-//int inputIntRange(int low, int high); 
+#include "file_reading.h"
 
 //display a single record 
 void displaySingleRecord(const struct WeatherRecord* arr);
-
 
 //table headers 
 void displayAllDataTableHeader(void);
@@ -43,10 +35,5 @@ void displayByLocationTableHeader(void);
 
 //main Menu 
 void showMenu(struct WeatherRecord arr[], int howManyRecords);
-
-
-
-
-
 
 #endif // !SHOWMENU_H1
